@@ -4,7 +4,7 @@ import cors from "cors" ;
 import connectDB from "./configs/db.js";
 import { clerkMiddleware} from '@clerk/express'
 
-import Clerkwebhooks from "./controllers/clerkwebhooks.js";
+import Clerkwebhooks from "./controllers/clerkWebhooks.js";
 
 
 
