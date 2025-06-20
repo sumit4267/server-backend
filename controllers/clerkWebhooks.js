@@ -1,7 +1,8 @@
 import User from"../models/User.js"
 import { Webhook } from "svix";
-const Clerkwebhooks = async (req, res) => {
-  try {
+
+const clerkwebhooks=async(req,res)=>{
+    try {
     // Create a Svix instance with clerk webhook secret.
     const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET);
     // Getting Headers
@@ -10,9 +11,9 @@ const Clerkwebhooks = async (req, res) => {
       "svix-id": req.headers["svix-id"],
       "svix-timestamp": req.headers["svix-timestamp"],
       "svix-signature": req.headers["svix-signature"],
-    };
-    // Verifying Headers
-    await whook.verify(JSON.stringify(req.body), headers)
+};
+// Verifying Headers
+   await whook.verify(JSON.stringify(req.body), headers)
     // Getting Data from request body
     const { data, type } = req.body
 
@@ -47,5 +48,6 @@ const Clerkwebhooks = async (req, res) => {
     console.log(error.message);
      res.json({ success: false, message: error.message });
   }
-};
-export default Clerkwebhooks;
+}
+
+export default clerkwebhooks
