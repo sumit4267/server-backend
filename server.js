@@ -6,6 +6,7 @@ import { clerkMiddleware} from '@clerk/express'
 import ClerkWebhooks from "./controllers/clerkwebhooks.js";
 
 
+
 connectDB()
 const app = express()
 app.use(cors()) // Enable Cross-Origin Resource Sharing
